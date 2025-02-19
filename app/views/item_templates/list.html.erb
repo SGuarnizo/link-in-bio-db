@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Cookie Monster Link Tree</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+    
+    <style>
+  /*
+      *{
+        border: thin red solid;
+      }
+*/
+
+      html {
+        min-height: 100%;
+      }
+
+      body {
+        min-height: 100%;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background: linear-gradient(15deg, #142850, #14365f, #13476f, #125d80, #107792, #0d96a5, #09b8b4, #04ccb1);
+        color: rgb(241, 160, 7);
+        font-family: "Fredoka";
+      }
+
+      a {
+      color: rgb(241, 160, 7);
+      text-decoration: none;
+    }
+
+      .containers{
+        text-align: center;
+        max-width: 640px;
+        margin: auto;
+        }
+
+      .social{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        font-size: 35px;
+      }
+
+      .row{
+        display: flex;
+        margin-bottom: 20px;
+        align-items: center;
+        background-color: #c4d4e0;
+        border-radius: 1000px;
+        padding-right: 48px;
+        box-shadow: 4px 4px 10px 0px rgba(54, 51, 54, 0.5);
+      }
+
+      .profile-image{
+        width: 128px;
+        height: 128px;
+        object-fit: cover;
+        border-radius: 128px;
+        box-shadow: 4px 4px 10px 0px rgba(54, 51, 54, 0.5);
+      }
+
+      .row-image{
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 48px;
+      }
+
+      .row-text{
+        text-align: center;
+        flex-grow: 1;
+        font-size: 16px;
+        font-style: "Roboto";
+        text-decoration: none;
+      }
+
+      .name{
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: 900;
+        padding-top: -55px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="containers">
+      
+      <div class="image">
+        <img class="profile-image"; src="/profile-pic.jpg"; alt="Cookie Monster"; ></img>
+      </div>
+
+      <div class="name">
+        <h1>Cookie Monster</h1>
+      </div>
+    
+      <div class="social">
+  
+        <a href="https://www.facebook.com/CookieMonster/" target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+  
+        <a href="https://www.instagram.com/cookiemonster/?hl=en" target="_blank">
+          <i class="fa-brands fa-square-instagram"></i>
+        </a>
+  
+        <a href="https://x.com/MeCookieMonster?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor&mx=2" target="_blank">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+      </div>
+
+      <div class="links">
+      <% Item.all.each do |the_item| %>
+        <div class="row">
+          <a target="_blank" href="<%= the_item.link_url %>">
+            <img class="row-image"; src="<%= the_item.thumbnail_url %>"; alt="cookies"></img>
+          </a>
+
+          <a class="row-text"; target="_blank" href="<%= the_item.link_url %>">
+            <%= the_item.link_description %>
+          </a>
+        </div>
+      <% end %>
+      </div>
+    </div>  
+
+  </body>
+
+</html>
